@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+
+exec \
+  mkdir -p "$MOUNTPOINT"
+exec \
+  /usr/bin/nohup /sbin/rpcbind -f &
+exec \
+  /bin/mount -t "$FSTYPE" -o "$MOUNT_OPTIONS" "$SERVER:$SHARE" "$MOUNTPOINT"
