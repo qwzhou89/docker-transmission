@@ -47,7 +47,7 @@ RUN \
 	/tmp/kettu.tar.gz -C \
 	/kettu --strip-components=1 && \
  echo "**** cleanup ****" && \
- apk del unzip unrar tar rsync python p7zip jq findutils curl && \
+ apk del unzip unrar tar rsync python p7zip findutils curl && \
  rm -rf \
 	/tmp/*
 

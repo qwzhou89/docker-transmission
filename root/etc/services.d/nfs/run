@@ -1,8 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-exec \
-  mkdir -p "$MOUNTPOINT"
-exec \
-  /usr/bin/nohup /sbin/rpcbind -f &
-exec \
-  /bin/mount -t "$FSTYPE" -o "$MOUNT_OPTIONS" "$SERVER:$SHARE" "$MOUNTPOINT"
+mkdir -p "$MOUNTPOINT"
+/sbin/rpcbind -f &
+/bin/mount -t "$FSTYPE" -o "$MOUNT_OPTIONS" "$SERVER:$SHARE" "$MOUNTPOINT"
+s6-setuidgid root chown -R abc:abc "$MOUNTPOINT" 
