@@ -19,6 +19,7 @@ RUN \
 	tar \
 	transmission-cli \
 	transmission-daemon \
+	nfs-utils \
 	unrar \
 	unzip && \
  echo "**** install third party themes ****" && \
@@ -46,6 +47,7 @@ RUN \
 	/tmp/kettu.tar.gz -C \
 	/kettu --strip-components=1 && \
  echo "**** cleanup ****" && \
+ apk del unzip unrar tar rsync python p7zip jq findutils curl && \
  rm -rf \
 	/tmp/*
 
